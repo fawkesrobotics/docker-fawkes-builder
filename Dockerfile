@@ -102,7 +102,7 @@ RUN /bin/bash -c "source /etc/profile && \
   "
 
 RUN \
-  dnf -y --nodocs install ccache licensecheck yamllint parallel clang procps-ng &&\
+  dnf -y --nodocs install ccache clang-tools-extra licensecheck yamllint parallel procps-ng &&\
   dnf clean all
 
 COPY ccache.conf /etc/ccache.conf
