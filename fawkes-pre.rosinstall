@@ -1,0 +1,4 @@
+- git:
+    local-name: fawkes_msgs
+    uri: https://github.com/fawkesrobotics/fawkes_msgs.git
+    version: master
