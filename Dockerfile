@@ -8,6 +8,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	dnf -y --nodocs update && \
   dnf install -y --nodocs 'dnf-command(copr)' && \
   dnf -y copr enable tavie/pddl_parser && \
+  dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
 	dnf -y copr enable thofmann/gologpp && \
