@@ -1,4 +1,4 @@
-FROM       quay.io/fedora/fedora:35
+FROM       quay.io/fedora/fedora:36
 
 COPY mongodb.repo /etc/yum.repos.d/
 
