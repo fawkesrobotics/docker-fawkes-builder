@@ -7,7 +7,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	# Update and clean cache afterwards
 	dnf -y --nodocs update && \
   dnf install -y --nodocs 'dnf-command(copr)' && \
-  dnf -y copr enable tavie/pddl_parser && \
+  #dnf -y copr enable tavie/pddl_parser && \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
@@ -54,7 +54,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	  clips clipsmm-devel clips-emacs \
     clingo-devel \
     eclipse-clp-devel gologpp-devel \
-    pddl_parser-devel \
+    #pddl_parser-devel \
     fast-forward popf \
 	  compat-lua compat-lua-devel compat-tolua++-devel \
 	  collada-dom-devel python-collada python-empy lz4-devel libuuid-devel \
