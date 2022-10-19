@@ -7,13 +7,14 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	# Update and clean cache afterwards
 	dnf -y --nodocs update && \
   dnf install -y --nodocs 'dnf-command(copr)' && \
-  dnf -y copr enable tavie/pddl_parser && \
-  dnf -y copr enable thofmann/clips-6.31 && \
-  dnf -y copr enable thofmann/clips_protobuf && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
 	dnf -y copr enable thofmann/gologpp && \
 	dnf -y copr enable thofmann/planner && \
+  dnf -y copr enable tavie/pddl_parser && \
+  dnf -y copr enable thofmann/clips-6.31 && \
+  dnf -y copr enable thofmann/clips_protobuf && \
   dnf -y copr enable thofmann/rcll-refbox && \
+  dnf -y copr enable thofmann/ros &&\
   dnf install -y --nodocs --excludepkg fedora-release \
     @buildsys-build \
     @development-tools \
@@ -31,6 +32,8 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     bzip2-devel \
     cairomm \
     catch-devel \
+    ccache \
+    clang-tools-extra \
     clingo-devel \
     clips \
     clips-emacs \
@@ -70,6 +73,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     gts-devel \
     hokuyoaist-devel \
     hostname \
+    install \
     kernel-headers \
     libXext-devel \
     libccd-devel \
@@ -90,6 +94,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     libxml++-devel \
     libxml2-devel \
     libxslt \
+    licensecheck \
     log4cxx-devel \
     lz4-devel \
     make \
@@ -104,11 +109,13 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     openssl-devel \
     orocos-bfl-devel \
     orocos-kdl-devel \
+    parallel \
     pcl-devel \
     pddl_parser-devel \
     player-devel \
     poco-devel \
     popf \
+    procps-ng \
     protobuf-compiler \
     protobuf-devel \
     protobuf_comm-devel \
@@ -134,6 +141,12 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     rapidjson-devel \
     rcll-refbox \
     readline-devel \
+    ros-desktop_full \
+    ros-desktop_full-devel \
+    ros-move_base_msgs \
+    ros-move_base_msgs-devel \
+    ros-tf2_bullet \
+    ros-tf2_bullet-devel \
     rrdtool-devel \
     screen \
     sqlite-devel \
@@ -147,7 +160,11 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     websocketpp-devel \
     xmlrpc-c-devel \
     yaml-cpp-devel \
+    yamllint \
 	&& dnf clean all
+
+RUN \
+	pip3 --no-cache-dir install gitlint
 
 ENV ROS_DISTRO=noetic \
     SHELL=/bin/bash \
@@ -158,14 +175,6 @@ ENV ROS_DISTRO=noetic \
     ROS_SETUP_SH=/usr/lib64/ros/setup.sh
 
 RUN \
-  dnf -y copr enable thofmann/ros &&\
-  dnf -y install --nodocs \
-    ros-desktop_full ros-desktop_full-devel \
-    ros-move_base_msgs ros-move_base_msgs-devel \
-    ros-tf2_bullet ros-tf2_bullet-devel &&\
-  dnf clean all
-
-RUN \
   source /etc/profile &&\
 	rosdep init &&\
 	rosdep update
@@ -174,8 +183,6 @@ COPY profile-ros.sh /etc/profile.d/ros.sh
 COPY screenrc /root/.screenrc
 RUN mkdir -p /opt/ros
 COPY run-env /opt/ros
-
-# ROS_DISTRO set by fedora-ros layer
 
 COPY fawkes-pre.rosinstall /opt/ros/
 
@@ -190,11 +197,4 @@ RUN /bin/bash -c "source /etc/profile && \
   rm -rf *_isolated; \
   "
 
-RUN \
-  dnf -y --nodocs install ccache clang-tools-extra licensecheck yamllint parallel procps-ng &&\
-  dnf clean all
-
 COPY ccache.conf /etc/ccache.conf
-
-RUN \
-	pip3 --no-cache-dir install gitlint
