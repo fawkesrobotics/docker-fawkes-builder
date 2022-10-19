@@ -15,52 +15,138 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	dnf -y copr enable thofmann/planner && \
   dnf -y copr enable thofmann/rcll-refbox && \
   dnf install -y --nodocs --excludepkg fedora-release \
-    @buildsys-build @development-tools \
-	  gcc-c++ git make cmake hostname \
-	  doxygen doxygen-latex asciidoc docbook-style-xsl \
-	  kernel-headers elfutils-libelf-devel file-devel \
-	  yaml-cpp-devel python3-pyyaml tinyxml-devel tinyxml2-devel libxslt xmlrpc-c-devel \
-	  libxml2-devel libxml++-devel python3-libxml2 apr-util-devel \
-	  boost-devel log4cxx-devel poco-devel readline-devel bzip2-devel \
-	  gperftools-devel gtest-devel catch-devel libtool-ltdl-devel sqlite-devel \
-	  tbb-devel python-setuptools python3-numpy python3-pyopengl \
-	  avahi-devel bluez-libs-devel libmicrohttpd-devel libdaemon-devel \
-    npm rapidjson-devel ctemplate-devel websocketpp-devel \
-	  openssl-devel libmodbus-devel \
-	  libjpeg-devel libpng-devel opencv-devel \
-    orocos-kdl-devel orocos-bfl-devel \
-	  libusb-devel hokuyoaist-devel libdc1394-devel libkni3-devel \
-    librealsense-devel librealsense1-devel \
-	  libudev-devel urg-devel libkindrv-devel \
-	  flite-devel \
-	  urdfdom-headers-devel urdfdom-devel \
-	  bullet-devel CGAL-devel eigen3-devel \
-	  gts-devel libccd-devel pcl-devel player-devel openni-devel \
-	  protobuf-devel protobuf-compiler protobuf_comm-devel \
-	  graphviz graphviz-devel rrdtool-devel \
-	  mongo-cxx-driver-devel mongodb-org-server \
-	  assimp-devel freeimage-devel ogre-devel \
-	  mesa-libGL-devel mesa-libGLU-devel freeglut-devel \
-	  libXext-devel fltk-devel \
-	  SDL-devel SDL_image-devel SDL_net-devel \
-	  cairomm gconfmm26-devel glibmm24-devel gtkmm30-devel \
-	  gazebo-devel gazebo-ode-devel gazebo-media \
-	  python3-rospkg python3-rospkg console-bridge-devel \
-	  python-rosdistro python3-rosinstall \
-	  python3-wstool python3-rosdep python-rosdistro \
-    python3-rosinstall_generator python3-rosinstall \
-    python3-defusedxml \
-    python3-sip-devel \
-	  python-netifaces \
-	  clips clipsmm-devel clips-emacs \
+    @buildsys-build \
+    @development-tools \
+    CGAL-devel \
+    SDL-devel \
+    SDL_image-devel \
+    SDL_net-devel \
+    apr-util-devel \
+    asciidoc \
+    assimp-devel \
+    avahi-devel \
+    bluez-libs-devel \
+    boost-devel \
+    bullet-devel \
+    bzip2-devel \
+    cairomm \
+    catch-devel \
     clingo-devel \
-    eclipse-clp-devel gologpp-devel \
+    clips \
+    clips-emacs \
+    clipsmm-devel \
+    cmake \
+    collada-dom-devel \
+    compat-lua \
+    compat-lua-devel \
+    compat-tolua++-devel \
+    console-bridge-devel \
+    ctemplate-devel \
+    docbook-style-xsl \
+    doxygen \
+    doxygen-latex \
+    eclipse-clp-devel \
+    eigen3-devel \
+    elfutils-libelf-devel \
+    fast-forward \
+    file-devel \
+    flite-devel \
+    fltk-devel \
+    freeglut-devel \
+    freeimage-devel \
+    gazebo-devel \
+    gazebo-media \
+    gazebo-ode-devel \
+    gcc-c++ \
+    gconfmm26-devel \
+    git \
+    glibmm24-devel \
+    gologpp-devel \
+    gperftools-devel \
+    graphviz \
+    graphviz-devel \
+    gtest-devel \
+    gtkmm30-devel \
+    gts-devel \
+    hokuyoaist-devel \
+    hostname \
+    kernel-headers \
+    libXext-devel \
+    libccd-devel \
+    libdaemon-devel \
+    libdc1394-devel \
+    libjpeg-devel \
+    libkindrv-devel \
+    libkni3-devel \
+    libmicrohttpd-devel \
+    libmodbus-devel \
+    libpng-devel \
+    librealsense-devel \
+    librealsense1-devel \
+    libtool-ltdl-devel \
+    libudev-devel \
+    libusb-devel \
+    libuuid-devel \
+    libxml++-devel \
+    libxml2-devel \
+    libxslt \
+    log4cxx-devel \
+    lz4-devel \
+    make \
+    mesa-libGL-devel \
+    mesa-libGLU-devel \
+    mongo-cxx-driver-devel \
+    mongodb-org-server \
+    npm \
+    ogre-devel \
+    opencv-devel \
+    openni-devel \
+    openssl-devel \
+    orocos-bfl-devel \
+    orocos-kdl-devel \
+    pcl-devel \
     pddl_parser-devel \
-    fast-forward popf \
-	  compat-lua compat-lua-devel compat-tolua++-devel \
-	  collada-dom-devel python-collada python-empy lz4-devel libuuid-devel \
-	  screen \
-    rcll-refbox tmux \
+    player-devel \
+    poco-devel \
+    popf \
+    protobuf-compiler \
+    protobuf-devel \
+    protobuf_comm-devel \
+    python-collada \
+    python-empy \
+    python-netifaces \
+    python-rosdistro \
+    python-rosdistro \
+    python-setuptools \
+    python3-defusedxml \
+    python3-libxml2 \
+    python3-numpy \
+    python3-pyopengl \
+    python3-pyyaml \
+    python3-rosdep \
+    python3-rosinstall \
+    python3-rosinstall \
+    python3-rosinstall_generator \
+    python3-rospkg \
+    python3-rospkg \
+    python3-sip-devel \
+    python3-wstool \
+    rapidjson-devel \
+    rcll-refbox \
+    readline-devel \
+    rrdtool-devel \
+    screen \
+    sqlite-devel \
+    tbb-devel \
+    tinyxml-devel \
+    tinyxml2-devel \
+    tmux \
+    urdfdom-devel \
+    urdfdom-headers-devel \
+    urg-devel \
+    websocketpp-devel \
+    xmlrpc-c-devel \
+    yaml-cpp-devel \
 	&& dnf clean all
 
 ENV ROS_DISTRO=noetic \
