@@ -13,6 +13,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
 	dnf -y copr enable thofmann/gologpp && \
 	dnf -y copr enable thofmann/planner && \
+  dnf -y copr enable thofmann/rcll-refbox && \
   dnf install -y --nodocs --excludepkg fedora-release \
     @buildsys-build @development-tools \
 	  gcc-c++ git make cmake hostname \
@@ -59,6 +60,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	  compat-lua compat-lua-devel compat-tolua++-devel \
 	  collada-dom-devel python-collada python-empy lz4-devel libuuid-devel \
 	  screen \
+    rcll-refbox tmux \
 	&& dnf clean all
 
 ENV ROS_DISTRO=noetic \
@@ -110,10 +112,3 @@ COPY ccache.conf /etc/ccache.conf
 
 RUN \
 	pip3 --no-cache-dir install gitlint
-
-# Install refbox, used for testing
-RUN \
-  dnf -y --nodocs install 'dnf-command(copr)' && \
-  dnf -y copr enable thofmann/rcll-refbox && \
-  dnf -y --nodocs install rcll-refbox tmux && \
-  dnf clean all
