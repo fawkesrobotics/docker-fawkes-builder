@@ -73,7 +73,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     gts-devel \
     hokuyoaist-devel \
     hostname \
-    install \
     kernel-headers \
     libXext-devel \
     libccd-devel \
