@@ -14,7 +14,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
   dnf -y copr enable thofmann/rcll-refbox && \
-  dnf -y copr enable thofmann/ros &&\
+  dnf -y copr enable tavie/ros &&\
   dnf install -y --nodocs --excludepkg fedora-release \
     @buildsys-build \
     @development-tools \
