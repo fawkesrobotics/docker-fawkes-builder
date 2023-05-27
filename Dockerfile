@@ -8,12 +8,10 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	dnf -y --nodocs update && \
   dnf install -y --nodocs 'dnf-command(copr)' && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
-	dnf -y copr enable thofmann/gologpp && \
 	dnf -y copr enable thofmann/planner && \
   dnf -y copr enable tavie/pddl_parser && \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
-  dnf -y copr enable thofmann/rcll-refbox && \
   dnf -y copr enable tavie/ros &&\
   dnf install -y --nodocs --excludepkg fedora-release \
     @buildsys-build \
@@ -36,7 +34,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     clang-tools-extra \
     clingo-devel \
     clips \
-    clips-emacs \
     clipsmm-devel \
     cmake \
     collada-dom-devel \
@@ -64,7 +61,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     gconfmm26-devel \
     git \
     glibmm24-devel \
-    gologpp-devel \
     gperftools-devel \
     graphviz \
     graphviz-devel \
@@ -88,7 +84,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     librealsense1-devel \
     libtool-ltdl-devel \
     libudev-devel \
-    libusb-devel \
+    libusb1-devel \
     libuuid-devel \
     libxml++-devel \
     libxml2-devel \
@@ -138,7 +134,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     python3-sip-devel \
     python3-wstool \
     rapidjson-devel \
-    rcll-refbox \
     readline-devel \
     ros-desktop_full \
     ros-desktop_full-devel \
