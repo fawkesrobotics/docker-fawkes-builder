@@ -135,6 +135,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     python3-wstool \
     rapidjson-devel \
     readline-devel \
+    ros2-ament_package \
     ros2-desktop \
     ros2-desktop-devel \
     ros2-navigation2 \
