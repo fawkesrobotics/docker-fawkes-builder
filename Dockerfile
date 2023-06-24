@@ -12,7 +12,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
   dnf -y copr enable tavie/pddl_parser && \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
-  dnf -y copr enable tavie/ros &&\
+  dnf -y copr enable tavie/ros2 &&\
   dnf install -y --nodocs --excludepkg fedora-release \
     @buildsys-build \
     @development-tools \
@@ -135,12 +135,10 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     python3-wstool \
     rapidjson-devel \
     readline-devel \
-    ros-desktop_full \
-    ros-desktop_full-devel \
-    ros-move_base_msgs \
-    ros-move_base_msgs-devel \
-    ros-tf2_bullet \
-    ros-tf2_bullet-devel \
+    ros2-desktop \
+    ros2-desktop-devel \
+    ros2-navigation2 \
+    ros2-navigation2-devel \
     rrdtool-devel \
     screen \
     sqlite-devel \
@@ -160,13 +158,13 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 RUN \
 	pip3 --no-cache-dir install gitlint
 
-ENV ROS_DISTRO=noetic \
+ENV ROS_DISTRO=humble \
     SHELL=/bin/bash \
 		ROS_BUILD_TYPE=Release \
 		ROSCONSOLE_STDOUT_LINE_BUFFERED=1 \
 		ROSCONSOLE_FORMAT='[${severity}] [${time}] ${node}: ${message}' \
-    ROS_SETUP_BASH=/usr/lib64/ros/setup.bash \
-    ROS_SETUP_SH=/usr/lib64/ros/setup.sh
+    ROS_SETUP_BASH=/usr/lib64/ros2/setup.bash \
+    ROS_SETUP_SH=/usr/lib64/ros2/setup.sh
 
 RUN \
   source /etc/profile &&\
@@ -177,18 +175,5 @@ COPY profile-ros.sh /etc/profile.d/ros.sh
 COPY screenrc /root/.screenrc
 RUN mkdir -p /opt/ros
 COPY run-env /opt/ros
-
-COPY fawkes-pre.rosinstall /opt/ros/
-
-# Get and compile ROS pre bits
-RUN /bin/bash -c "source /etc/profile && \
-  mkdir -p /opt/ros/catkin_ws_${ROS_DISTRO}_fawkes_pre/src; \
-  cd /opt/ros/catkin_ws_${ROS_DISTRO}_fawkes_pre; \
-  wstool init -j $(nproc) src ../fawkes-pre.rosinstall; \
-  rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y; \
-  catkin_make_isolated --install --install-space /opt/ros/$ROS_DISTRO \
-    -DCMAKE_BUILD_TYPE=$ROS_BUILD_TYPE || exit $?; \
-  rm -rf *_isolated; \
-  "
 
 COPY ccache.conf /etc/ccache.conf
