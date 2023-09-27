@@ -29,7 +29,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     bullet-devel \
     bzip2-devel \
     cairomm \
-    catch-devel \
+    catch2-devel \
     ccache \
     clang-tools-extra \
     clingo-devel \
