@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:37
+FROM quay.io/fedora/fedora:38
 
 COPY mongodb.repo /etc/yum.repos.d/
 
@@ -135,11 +135,11 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     python3-wstool \
     rapidjson-devel \
     readline-devel \
-    ros2-ament_package \
-    ros2-desktop \
-    ros2-desktop-devel \
-    ros2-navigation2 \
-    ros2-navigation2-devel \
+    ros2-humble-ament_package \
+    ros2-humble-desktop \
+    ros2-humble-desktop-devel \
+    ros2-humble-navigation2 \
+    ros2-humble-navigation2-devel \
     rrdtool-devel \
     screen \
     sqlite-devel \
@@ -164,8 +164,8 @@ ENV ROS_DISTRO=humble \
 		ROS_BUILD_TYPE=Release \
 		ROSCONSOLE_STDOUT_LINE_BUFFERED=1 \
 		ROSCONSOLE_FORMAT='[${severity}] [${time}] ${node}: ${message}' \
-    ROS_SETUP_BASH=/usr/lib64/ros2/setup.bash \
-    ROS_SETUP_SH=/usr/lib64/ros2/setup.sh
+    ROS_SETUP_BASH=/usr/lib64/ros2-humble/setup.bash \
+    ROS_SETUP_SH=/usr/lib64/ros2-humble/setup.sh
 
 RUN \
   source /etc/profile &&\
