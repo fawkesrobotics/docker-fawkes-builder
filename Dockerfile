@@ -77,7 +77,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     libdc1394-devel \
     libjpeg-devel \
     libkindrv-devel \
-    libkni3-devel \
     libmicrohttpd-devel \
     libmodbus-devel \
     libpng-devel \
@@ -127,13 +126,10 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     python3-pyopengl \
     python3-pyyaml \
     python3-rosdep \
-    python3-rosinstall \
-    python3-rosinstall \
     python3-rosinstall_generator \
     python3-rospkg \
     python3-rospkg \
     python3-sip-devel \
-    python3-wstool \
     rapidjson-devel \
     readline-devel \
     ros2-humble-ament_package \
