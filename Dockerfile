@@ -10,6 +10,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
 	dnf -y copr enable thofmann/eclipse-clp-6 && \
 	dnf -y copr enable thofmann/planner && \
   dnf -y copr enable tavie/pddl_parser && \
+  dnf -y copr enable tavie/mongo-cxx-driver && \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
   dnf -y copr enable tavie/ros2 &&\
