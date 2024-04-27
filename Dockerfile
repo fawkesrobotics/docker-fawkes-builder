@@ -1,8 +1,8 @@
-FROM quay.io/fedora/fedora:39
+FROM quay.io/fedora/fedora:40
 
 COPY mongodb.repo /etc/yum.repos.d/
 
-RUN dnf install -y --nodocs dnf-plugin-ovl && \
+RUN \
   echo "deltarpm=0" >> /etc/dnf/dnf.conf && \
 	# Update and clean cache afterwards
 	dnf -y --nodocs update && \
@@ -15,6 +15,7 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
   dnf -y copr enable thofmann/clips_protobuf && \
   dnf -y copr enable tavie/ros2 &&\
   dnf install -y --nodocs --excludepkg fedora-release \
+    util-linux-core \
     @buildsys-build \
     @development-tools \
     CGAL-devel \
@@ -81,7 +82,6 @@ RUN dnf install -y --nodocs dnf-plugin-ovl && \
     libmodbus-devel \
     libpng-devel \
     librealsense-devel \
-    librealsense1-devel \
     libtool-ltdl-devel \
     libudev-devel \
     libusb1-devel \
