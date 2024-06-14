@@ -132,11 +132,18 @@ RUN \
     python3-sip-devel \
     rapidjson-devel \
     readline-devel \
-    ros2-humble-ament_package \
-    ros2-humble-desktop \
-    ros2-humble-desktop-devel \
-    ros2-humble-navigation2 \
-    ros2-humble-navigation2-devel \
+    ros-humble-ament-package \
+    ros-humble-desktop \
+    ros-humble-navigation2 \
+    python3-colcon-core \
+    python3-colcon-common-extensions \
+    python3-colcon-ros \
+    ros-humble-xacro \
+    ros-humble-ompl \
+    ros-humble-robot-localization \
+    ros-humble-behaviortree-cpp-v3 \
+    ros-humble-bondcpp \
+    ros-humble-diagnostic-updater \
     rrdtool-devel \
     screen \
     sqlite-devel \
@@ -154,7 +161,7 @@ RUN \
 	&& dnf clean all
 
 RUN \
-	pip3 --no-cache-dir install gitlint
+	pip3 --no-cache-dir install gitlint pre-commit
 
 ENV ROS_DISTRO=humble \
     SHELL=/bin/bash \
