@@ -14,6 +14,8 @@ RUN \
   dnf -y copr enable thofmann/clips-6.31 && \
   dnf -y copr enable thofmann/clips_protobuf && \
   dnf -y copr enable tavie/ros2 &&\
+  dnf -y copr enable tavie/robotino-api2
+Run \
   dnf install -y --nodocs --excludepkg fedora-release \
     util-linux-core \
     @buildsys-build \
@@ -117,34 +119,20 @@ RUN \
     python-collada \
     python-empy \
     python-netifaces \
-    python-rosdistro \
-    python-rosdistro \
     python-setuptools \
     python3-defusedxml \
     python3-libxml2 \
     python3-numpy \
     python3-pyopengl \
     python3-pyyaml \
-    python3-rosdep \
-    python3-rosinstall_generator \
-    python3-rospkg \
-    python3-rospkg \
     python3-sip-devel \
     rapidjson-devel \
     readline-devel \
-    ros-humble-ament-package \
-    ros-humble-desktop \
-    ros-humble-navigation2 \
     python3-colcon-core \
     python3-colcon-common-extensions \
-    python3-colcon-ros \
-    ros-humble-xacro \
-    ros-humble-ompl \
-    ros-humble-robot-localization \
-    ros-humble-behaviortree-cpp-v3 \
-    ros-humble-bondcpp \
-    ros-humble-diagnostic-updater \
     rrdtool-devel \
+    robotino-dev \
+    robotino-api2 \
     screen \
     sqlite-devel \
     tbb-devel \
@@ -157,9 +145,32 @@ RUN \
     websocketpp-devel \
     xmlrpc-c-devel \
     yaml-cpp-devel \
-    yamllint \
-	&& dnf clean all
+    yamllint
 
+RUN \
+  dnf install -y --nodocs \
+      python-rosdistro \
+      python-rosdistro \
+      python3-rosdep \
+      python3-rosinstall_generator \
+      python3-rospkg \
+      python3-rospkg \
+      python3-vcstool \
+      ros-humble-ament-package \
+      ros-humble-desktop \
+      ros-humble-navigation2 \
+      python3-colcon-ros \
+      ros-humble-xacro \
+      ros-humble-ompl \
+      ros-humble-robot-localization \
+      ros-humble-behaviortree-cpp-v3 \
+      ros-humble-bondcpp \
+      ros-humble-diagnostic-updater \
+      ros2-humble-plansys2_planner-devel \
+      ros2-humble-plansys2_problem_expert \
+      ros2-humble-plansys2_lifecycle_manager-devel \
+      ros-humble-webots-ros2-driver \
+         && dnf clean all
 RUN \
 	pip3 --no-cache-dir install gitlint pre-commit
 
