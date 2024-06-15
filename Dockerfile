@@ -44,6 +44,7 @@ Run \
     compat-lua \
     compat-lua-devel \
     compat-tolua++-devel \
+    luarocks \
     console-bridge-devel \
     ctemplate-devel \
     docbook-style-xsl \
