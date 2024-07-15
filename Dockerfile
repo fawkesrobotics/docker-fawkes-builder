@@ -157,31 +157,28 @@ RUN \
       python3-rospkg \
       python3-rospkg \
       python3-vcstool \
-      ros-humble-ament-package \
-      ros-humble-desktop \
-      ros-humble-navigation2 \
+      ros-jazzy-ament-package \
+      ros-jazzy-desktop \
+      ros-jazzy-navigation2 \
       python3-colcon-ros \
-      ros-humble-xacro \
-      ros-humble-ompl \
-      ros-humble-robot-localization \
-      ros-humble-behaviortree-cpp-v3 \
-      ros-humble-bondcpp \
-      ros-humble-diagnostic-updater \
-      ros2-humble-plansys2_planner-devel \
-      ros2-humble-plansys2_problem_expert \
-      ros2-humble-plansys2_lifecycle_manager-devel \
-      ros-humble-webots-ros2-driver \
+      ros-jazzy-xacro \
+      ros-jazzy-ompl \
+      ros-jazzy-robot-localization \
+      ros-jazzy-behaviortree-cpp \
+      ros-jazzy-bondcpp \
+      ros-jazzy-diagnostic-updater \
+      ros-jazzy-webots-ros2-driver \
          && dnf clean all
 RUN \
 	pip3 --no-cache-dir install gitlint pre-commit
 
-ENV ROS_DISTRO=humble \
+ENV ROS_DISTRO=jazzy \
     SHELL=/bin/bash \
 		ROS_BUILD_TYPE=Release \
 		ROSCONSOLE_STDOUT_LINE_BUFFERED=1 \
 		ROSCONSOLE_FORMAT='[${severity}] [${time}] ${node}: ${message}' \
-    ROS_SETUP_BASH=/usr/lib64/ros2-humble/setup.bash \
-    ROS_SETUP_SH=/usr/lib64/ros2-humble/setup.sh
+    ROS_SETUP_BASH=/usr/lib64/ros2-jazzy/setup.bash \
+    ROS_SETUP_SH=/usr/lib64/ros2-jazzy/setup.sh
 
 RUN \
   source /etc/profile &&\
