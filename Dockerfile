@@ -127,6 +127,7 @@ Run \
     python3-pyopengl \
     python3-pyyaml \
     python3-sip-devel \
+    python3-jinja2 \
     rapidjson-devel \
     readline-devel \
     python3-colcon-core \
@@ -153,6 +154,7 @@ RUN \
       python-rosdistro \
       python-rosdistro \
       python3-rosdep \
+      python3-msgpack \
       python3-rosinstall_generator \
       python3-rospkg \
       python3-rospkg \
